@@ -6,7 +6,8 @@ import { inc } from '../states/counter/counter.action';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { appstate } from '../states/app.state';
-import { selectCount } from '../states/counter/counter.selector';
+import { selectCount, selectCounterState } from '../states/counter/counter.selector';
+import { AsyncPipe, CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -15,14 +16,15 @@ import { selectCount } from '../states/counter/counter.selector';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  count$: Observable<number>;
+
   constructor(
     private formDataService: FormDataService,
     private store: Store<appstate>
   ) {
-     this.count$ = this.store.select(selectCount);
+    this.count$ = this.store.select(selectCount);
   }
-  count$: Observable<number>;
-  
+
   onSubmit(event: Event) {
     event.preventDefault(); // Prevent default form submission behavior
 

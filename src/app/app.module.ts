@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { NoPageComponent } from './no-page/no-page.component';
 import { StoreModule } from '@ngrx/store';
+import { AgGridAngular } from 'ag-grid-angular';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,14 +17,17 @@ import { StoreModule } from '@ngrx/store';
     TextComponent,
     HomeComponent,
     ContactComponent,
-    NoPageComponent
+    NoPageComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {})
+    AgGridAngular,
+    HttpClientModule,
+    StoreModule.forRoot({}, {}),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [HttpClient],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

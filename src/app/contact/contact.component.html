@@ -1,1 +1,15 @@
-<p>contact works!</p>
+    <div >
+
+      <!-- The AG Grid component, with Dimensions, CSS Theme, Row Data, and Column Definition -->
+      <ag-grid-angular
+        style="width: 100%; height: 350px;"
+        [class]="themeClass"
+        [rowData]="userList"
+        [columnDefs]="colDefs"
+        [defaultColDef]="defaultcoldef"
+        [pagination]="true"
+        [paginationPageSizeSelector]="[1,10,50]"
+      >
+      </ag-grid-angular>
+
+    </div>
